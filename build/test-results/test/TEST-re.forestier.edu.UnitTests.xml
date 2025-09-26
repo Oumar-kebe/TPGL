@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="re.forestier.edu.UnitTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-26T13:25:41" hostname="a206pc13L.local.isima.fr" time="0.007">
+  <properties/>
+  <testcase name="Impossible to have negative money" classname="re.forestier.edu.UnitTests" time="0.0"/>
+  <testcase name="Sample test" classname="re.forestier.edu.UnitTests" time="0.003"/>
+  <testcase name="Test majFinDeTour: joueur KO" classname="re.forestier.edu.UnitTests" time="0.003"/>
+  <system-out><![CDATA[Le joueur est KO !
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
