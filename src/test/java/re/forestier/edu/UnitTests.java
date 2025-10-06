@@ -68,11 +68,26 @@ public class UnitTests {
         UpdatePlayer.majFinDeTour(p);
         assertEquals(50, p.currenthealthpoints);
 
+        p = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>(Arrays.asList("Magic Bow")));  
+        p.currenthealthpoints = 101;
+        p.healthpoints = 100;
+        UpdatePlayer.majFinDeTour(p);
+        assertEquals(100, p.currenthealthpoints);
         
+        
+    }
 
-        
-        
-     }
+    @Test
+    @DisplayName("lambda")
+    void test2() {
+        player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());  
+        UpdatePlayer.addXp(p,3);
+        assertEquals(3, p.getXp());
+        UpdatePlayer.addXp(p,3);
+        assertEquals(6, p.getXp());
+
+
+    }
 
 
 

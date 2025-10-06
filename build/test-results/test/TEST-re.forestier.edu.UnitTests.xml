@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="re.forestier.edu.UnitTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-09-29T10:15:40" hostname="PC-WINDOWS" time="0.12">
+<testsuite name="re.forestier.edu.UnitTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-10-06T07:47:52" hostname="a206pc13L.local.isima.fr" time="0.009">
   <properties/>
-  <testcase name="Test MajFinDeTour: Joueur KO" classname="re.forestier.edu.UnitTests" time="0.075"/>
-  <testcase name="testMajFinTour()" classname="re.forestier.edu.UnitTests" time="0.018"/>
-  <testcase name="Impossible to have negative money" classname="re.forestier.edu.UnitTests" time="0.003"/>
-  <testcase name="Sample test" classname="re.forestier.edu.UnitTests" time="0.017"/>
+  <testcase name="Test MajFinDeTour: Joueur KO" classname="re.forestier.edu.UnitTests" time="0.001"/>
+  <testcase name="lambda" classname="re.forestier.edu.UnitTests" time="0.003"/>
+  <testcase name="testMajFinTour()" classname="re.forestier.edu.UnitTests" time="0.0"/>
+  <testcase name="Impossible to have negative money" classname="re.forestier.edu.UnitTests" time="0.0"/>
+  <testcase name="Sample test" classname="re.forestier.edu.UnitTests" time="0.003"/>
   <system-out><![CDATA[Le joueur est KO !
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
