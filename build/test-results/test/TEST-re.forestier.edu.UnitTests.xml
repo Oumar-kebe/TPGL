@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="re.forestier.edu.UnitTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-10-06T07:47:52" hostname="a206pc13L.local.isima.fr" time="0.009">
+<testsuite name="re.forestier.edu.UnitTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-10-20T10:09:30" hostname="a206pc26L.local.isima.fr" time="0.011">
   <properties/>
   <testcase name="Test MajFinDeTour: Joueur KO" classname="re.forestier.edu.UnitTests" time="0.001"/>
-  <testcase name="lambda" classname="re.forestier.edu.UnitTests" time="0.003"/>
+  <testcase name="player" classname="re.forestier.edu.UnitTests" time="0.004"/>
+  <testcase name="lambda" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <testcase name="testMajFinTour()" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <testcase name="Impossible to have negative money" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <testcase name="Sample test" classname="re.forestier.edu.UnitTests" time="0.003"/>

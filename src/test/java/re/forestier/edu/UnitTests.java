@@ -78,8 +78,37 @@ public class UnitTests {
     }
 
     @Test
-    @DisplayName("lambda")
+    @DisplayName("player")
     void test2() {
+        player p = new player("Florian", "Grognak le barbare", "CCCC", 100, new ArrayList<>());  
+
+        p = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>(Arrays.asList("Magic Bow"))); 
+        p.removeMoney(50);
+        assertEquals(50, p.money);
+
+        p = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>(Arrays.asList("Magic Bow"))); 
+        Integer val = 50;
+        p.addMoney(val);
+        assertEquals(150, p.money);
+
+
+
+        p = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>(Arrays.asList("Magic Bow")));  
+        assertEquals(1, p.retrieveLevel());
+        UpdatePlayer.addXp(p, 10);
+        assertEquals(2, p.retrieveLevel());
+        UpdatePlayer.addXp(p, 17);
+        assertEquals(3, p.retrieveLevel());
+        UpdatePlayer.addXp(p, 30);
+        assertEquals(4, p.retrieveLevel());
+        UpdatePlayer.addXp(p, 54);
+        assertEquals(5, p.retrieveLevel());
+    }
+        
+
+    @Test
+    @DisplayName("lambda")
+    void test3() {
         player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());  
         UpdatePlayer.addXp(p,3);
         assertEquals(3, p.getXp());
@@ -88,7 +117,5 @@ public class UnitTests {
 
 
     }
-
-
 
 }
