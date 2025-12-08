@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - GlobalTest</title>
+<title>Test results - Tests de gestion de l'argent</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>GlobalTest</h1>
+<h1>Tests de gestion de l'argent</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/re.forestier.edu.html">re.forestier.edu</a> &gt; GlobalTest</div>
+<a href="../packages/re.forestier.edu.html">re.forestier.edu</a> &gt; UnitTests$MoneyManagementTests</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">3</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.159s</div>
+<div class="counter">0.004s</div>
 <p>duration</p>
 </div>
 </td>
@@ -70,13 +70,27 @@
 <thead>
 <tr>
 <th>Test</th>
+<th>Method name</th>
 <th>Duration</th>
 <th>Result</th>
 </tr>
 </thead>
 <tr>
-<td class="success">testAffichageBase()</td>
-<td class="success">0.159s</td>
+<td class="success">Ajout d'argent</td>
+<td class="success">testAddMoney()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Impossible argent négatif</td>
+<td class="success">testNegativeMoney()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Retrait d'argent</td>
+<td class="success">testRemoveMoney()</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 </table>

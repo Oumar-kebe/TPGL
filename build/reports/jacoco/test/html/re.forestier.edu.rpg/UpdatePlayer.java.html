@@ -130,7 +130,7 @@ import java.util.Random;
 <span class="fc bfc" id="L130" title="All 2 branches covered.">        if(player.currenthealthpoints &lt; player.healthpoints/2) {</span>
 <span class="fc bfc" id="L131" title="All 2 branches covered.">            if(!player.getAvatarClass().equals(&quot;ADVENTURER&quot;)) {</span>
 <span class="fc bfc" id="L132" title="All 2 branches covered.">                if(player.getAvatarClass().equals(&quot;DWARF&quot;)) {</span>
-<span class="pc bpc" id="L133" title="1 of 2 branches missed.">                    if(player.inventory.contains(&quot;Holy Elixir&quot;)) {</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">                    if(player.inventory.contains(&quot;Holy Elixir&quot;)) {</span>
 <span class="fc" id="L134">                        player.currenthealthpoints+=1;</span>
                     }
 <span class="fc" id="L136">                    player.currenthealthpoints+=1;</span>
@@ -141,13 +141,13 @@ import java.util.Random;
 
 <span class="fc bfc" id="L142" title="All 2 branches covered.">                if(player.getAvatarClass().equals(&quot;ARCHER&quot;)) {</span>
 <span class="fc" id="L143">                    player.currenthealthpoints+=1;</span>
-<span class="pc bpc" id="L144" title="1 of 2 branches missed.">                    if(player.inventory.contains(&quot;Magic Bow&quot;)) {</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">                    if(player.inventory.contains(&quot;Magic Bow&quot;)) {</span>
 <span class="fc" id="L145">                        player.currenthealthpoints+=player.currenthealthpoints/8-1;</span>
                     }
                 }
             } else {
 <span class="fc" id="L149">                player.currenthealthpoints+=2;</span>
-<span class="pc bpc" id="L150" title="1 of 2 branches missed.">                if(player.retrieveLevel() &lt; 3) {</span>
+<span class="fc bfc" id="L150" title="All 2 branches covered.">                if(player.retrieveLevel() &lt; 3) {</span>
 <span class="fc" id="L151">                    player.currenthealthpoints-=1;</span>
                 }
             }
