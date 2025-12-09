@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests du syst�me de niveaux et XP" tests="20" skipped="0" failures="0" errors="0" timestamp="2025-12-09T01:06:07" hostname="ada.local.isima.fr" time="0.017">
+<testsuite name="Tests du syst�me de niveaux et XP" tests="20" skipped="0" failures="0" errors="0" timestamp="2025-12-09T01:23:26" hostname="ada.local.isima.fr" time="0.015">
   <properties/>
-  <testcase name="Level-up DWARF niveau 2 met � jour abilities" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.002"/>
+  <testcase name="Level-up DWARF niveau 2 met � jour abilities" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
   <testcase name="Passage niveau 2 avec 10 XP" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
   <testcase name="Passage niveau 3 avec 27 XP" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
   <testcase name="Passage niveau 4 avec 57 XP" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
   <testcase name="Passage niveau 5 avec 111 XP" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
   <testcase name="addXp retourne true lors level-up" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
-  <testcase name="XP juste avant limite niveau 2" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
-  <testcase name="XP juste avant limite niveau 3" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
-  <testcase name="XP juste avant limite niveau 4" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
-  <testcase name="XP juste avant limite niveau 5" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
-  <testcase name="addXp retourne false sans level-up" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
-  <testcase name="Niveau 1 par d�faut" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
-  <testcase name="Level-up ADVENTURER niveau 2 met � jour abilities" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
+  <testcase name="XP juste avant limite niveau 2" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
+  <testcase name="XP juste avant limite niveau 3" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
+  <testcase name="XP juste avant limite niveau 4" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
+  <testcase name="XP juste avant limite niveau 5" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
+  <testcase name="addXp retourne false sans level-up" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
+  <testcase name="Niveau 1 par d�faut" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
+  <testcase name="Level-up ADVENTURER niveau 2 met � jour abilities" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
   <testcase name="XP exactement � la limite niveau 2" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
   <testcase name="XP exactement � la limite niveau 3" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
-  <testcase name="XP exactement � la limite niveau 4" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
-  <testcase name="Level-up ARCHER niveau 2 met � jour abilities" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
-  <testcase name="XP exactement � la limite niveau 5" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
+  <testcase name="XP exactement � la limite niveau 4" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
+  <testcase name="Level-up ARCHER niveau 2 met � jour abilities" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
+  <testcase name="XP exactement � la limite niveau 5" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
   <testcase name="XP bien au-del� niveau 5" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
-  <testcase name="Level-up ajoute objet inventaire" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.001"/>
+  <testcase name="Level-up ajoute objet inventaire" classname="re.forestier.edu.UnitTests$LevelAndXpTests" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

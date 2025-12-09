@@ -9,7 +9,7 @@ public class player {
     private String AvatarClass;
 
     public Integer money;
-    private Float __real_money__;
+    
 
 
     public int level;
@@ -73,15 +73,6 @@ public class player {
         return this.xp;
     }
 
-    /*
-    Ингредиенты:
-        Для теста:
-
-            250 г муки
-            125 г сливочного масла (холодное)
-            70 г сахара
-            1 яйцо
-            1 щепотка соли
-     */
+    
 
 }
