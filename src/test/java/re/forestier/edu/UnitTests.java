@@ -3,6 +3,7 @@ package re.forestier.edu;
 import org.junit.jupiter.api.*;
 import re.forestier.edu.rpg.player;
 import re.forestier.edu.rpg.UpdatePlayer;
+import re.forestier.edu.rpg.AvatarClass;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +22,7 @@ public class UnitTests {
             player p = new player("Florian", "Grognak", "ADVENTURER", 100, new ArrayList<>());
             assertThat(p.playerName, is("Florian"));
             assertThat(p.Avatar_name, is("Grognak"));
-            assertThat(p.getAvatarClass(), is("ADVENTURER"));
+            assertThat(p.getAvatarClass(), is(AvatarClass.ADVENTURER));
             assertThat(p.money, is(100));
         }
 
@@ -29,14 +30,14 @@ public class UnitTests {
         @DisplayName("Cr�ation r�ussie ARCHER")
         void testCreateArcher() {
             player p = new player("Jean", "Legolas", "ARCHER", 200, new ArrayList<>());
-            assertThat(p.getAvatarClass(), is("ARCHER"));
+            assertThat(p.getAvatarClass(), is(AvatarClass.ARCHER));
         }
 
         @Test
         @DisplayName("Cr�ation r�ussie DWARF")
         void testCreateDwarf() {
             player p = new player("Pierre", "Gimli", "DWARF", 150, new ArrayList<>());
-            assertThat(p.getAvatarClass(), is("DWARF"));
+            assertThat(p.getAvatarClass(), is(AvatarClass.DWARF));
         }
 
         @Test
