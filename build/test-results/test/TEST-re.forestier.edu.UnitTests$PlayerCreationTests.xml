@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests de cr�ation de joueur" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-12-09T00:38:04" hostname="ada.local.isima.fr" time="0.002">
+<testsuite name="Tests de cr�ation de joueur" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-12-09T01:06:07" hostname="ada.local.isima.fr" time="0.003">
   <properties/>
-  <testcase name="Cr�ation r�ussie DWARF" classname="re.forestier.edu.UnitTests$PlayerCreationTests" time="0.0"/>
+  <testcase name="Cr�ation r�ussie DWARF" classname="re.forestier.edu.UnitTests$PlayerCreationTests" time="0.001"/>
   <testcase name="Cr�ation r�ussie ADVENTURER" classname="re.forestier.edu.UnitTests$PlayerCreationTests" time="0.001"/>
-  <testcase name="Cr�ation avec classe invalide" classname="re.forestier.edu.UnitTests$PlayerCreationTests" time="0.0"/>
+  <testcase name="Cr�ation avec classe invalide" classname="re.forestier.edu.UnitTests$PlayerCreationTests" time="0.001"/>
   <testcase name="Cr�ation r�ussie ARCHER" classname="re.forestier.edu.UnitTests$PlayerCreationTests" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
