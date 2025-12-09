@@ -12,11 +12,11 @@ import java.util.*;
 public class UnitTests {
 
     @Nested
-    @DisplayName("Tests de création de joueur")
+    @DisplayName("Tests de cr�ation de joueur")
     class PlayerCreationTests {
         
         @Test
-        @DisplayName("Création réussie ADVENTURER")
+        @DisplayName("Cr�ation r�ussie ADVENTURER")
         void testCreateAdventurer() {
             player p = new player("Florian", "Grognak", "ADVENTURER", 100, new ArrayList<>());
             assertThat(p.playerName, is("Florian"));
@@ -26,21 +26,21 @@ public class UnitTests {
         }
 
         @Test
-        @DisplayName("Création réussie ARCHER")
+        @DisplayName("Cr�ation r�ussie ARCHER")
         void testCreateArcher() {
             player p = new player("Jean", "Legolas", "ARCHER", 200, new ArrayList<>());
             assertThat(p.getAvatarClass(), is("ARCHER"));
         }
 
         @Test
-        @DisplayName("Création réussie DWARF")
+        @DisplayName("Cr�ation r�ussie DWARF")
         void testCreateDwarf() {
             player p = new player("Pierre", "Gimli", "DWARF", 150, new ArrayList<>());
             assertThat(p.getAvatarClass(), is("DWARF"));
         }
 
         @Test
-        @DisplayName("Création avec classe invalide")
+        @DisplayName("Cr�ation avec classe invalide")
         void testCreateInvalidClass() {
             player p = new player("Test", "Invalid", "INVALID", 100, new ArrayList<>());
             assertNull(p.getAvatarClass());
@@ -68,7 +68,7 @@ public class UnitTests {
         }
 
         @Test
-        @DisplayName("Impossible argent négatif")
+        @DisplayName("Impossible argent n�gatif")
         void testNegativeMoney() {
             player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
             assertThrows(IllegalArgumentException.class, () -> p.removeMoney(200));
@@ -76,11 +76,11 @@ public class UnitTests {
     }
 
     @Nested
-    @DisplayName("Tests du système de niveaux et XP")
+    @DisplayName("Tests du syst�me de niveaux et XP")
     class LevelAndXpTests {
         
         @Test
-        @DisplayName("Niveau 1 par défaut")
+        @DisplayName("Niveau 1 par d�faut")
         void testDefaultLevel() {
             player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
             assertEquals(1, p.retrieveLevel());
@@ -124,11 +124,75 @@ public class UnitTests {
         }
 
         @Test
-        @DisplayName("Reste niveau 1 avec 9 XP")
-        void testStayLevel1() {
+        @DisplayName("XP exactement � la limite niveau 2")
+        void testExactly10XP() {
+            player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 10);
+            assertEquals(2, p.retrieveLevel());
+        }
+
+        @Test
+        @DisplayName("XP juste avant limite niveau 2")
+        void testJustBeforeLevel2() {
             player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
             UpdatePlayer.addXp(p, 9);
             assertEquals(1, p.retrieveLevel());
+        }
+
+        @Test
+        @DisplayName("XP exactement � la limite niveau 3")
+        void testExactly27XP() {
+            player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 27);
+            assertEquals(3, p.retrieveLevel());
+        }
+
+        @Test
+        @DisplayName("XP juste avant limite niveau 3")
+        void testJustBeforeLevel3() {
+            player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 26);
+            assertEquals(2, p.retrieveLevel());
+        }
+
+        @Test
+        @DisplayName("XP exactement � la limite niveau 4")
+        void testExactly57XP() {
+            player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 57);
+            assertEquals(4, p.retrieveLevel());
+        }
+
+        @Test
+        @DisplayName("XP juste avant limite niveau 4")
+        void testJustBeforeLevel4() {
+            player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 56);
+            assertEquals(3, p.retrieveLevel());
+        }
+
+        @Test
+        @DisplayName("XP exactement � la limite niveau 5")
+        void testExactly111XP() {
+            player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 111);
+            assertEquals(5, p.retrieveLevel());
+        }
+
+        @Test
+        @DisplayName("XP juste avant limite niveau 5")
+        void testJustBeforeLevel5() {
+            player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 110);
+            assertEquals(4, p.retrieveLevel());
+        }
+
+        @Test
+        @DisplayName("XP bien au-del� niveau 5")
+        void testWellBeyondLevel5() {
+            player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 200);
+            assertEquals(5, p.retrieveLevel());
         }
 
         @Test
@@ -157,7 +221,7 @@ public class UnitTests {
         }
 
         @Test
-        @DisplayName("Level-up ARCHER niveau 2 met à jour abilities")
+        @DisplayName("Level-up ARCHER niveau 2 met � jour abilities")
         void testLevelUpArcherAbilities() {
             player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
             UpdatePlayer.addXp(p, 10);
@@ -166,7 +230,7 @@ public class UnitTests {
         }
 
         @Test
-        @DisplayName("Level-up DWARF niveau 2 met à jour abilities")
+        @DisplayName("Level-up DWARF niveau 2 met � jour abilities")
         void testLevelUpDwarfAbilities() {
             player p = new player("Test", "Avatar", "DWARF", 100, new ArrayList<>());
             UpdatePlayer.addXp(p, 10);
@@ -175,7 +239,7 @@ public class UnitTests {
         }
 
         @Test
-        @DisplayName("Level-up ADVENTURER niveau 2 met à jour abilities")
+        @DisplayName("Level-up ADVENTURER niveau 2 met � jour abilities")
         void testLevelUpAdventurerAbilities() {
             player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
             UpdatePlayer.addXp(p, 10);
@@ -199,29 +263,29 @@ public class UnitTests {
         }
 
         @Test
-        @DisplayName("Affichage avec capacités")
+        @DisplayName("Affichage avec capacit�s")
         void testAffichageWithAbilities() {
             player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
             String result = re.forestier.edu.rpg.Affichage.afficherJoueur(p);
-            assertThat(result, containsString("Capacités"));
+            assertThat(result, containsString("Capacit"));
         }
 
         @Test
         @DisplayName("Affichage avec un objet inventaire")
         void testAffichageWithOneItem() {
-            player p = new player("Test", "Avatar", "DWARF", 100, new ArrayList<>(Arrays.asList("Épée")));
+            player p = new player("Test", "Avatar", "DWARF", 100, new ArrayList<>(Arrays.asList("�p�e")));
             String result = re.forestier.edu.rpg.Affichage.afficherJoueur(p);
             assertThat(result, containsString("Inventaire"));
-            assertThat(result, containsString("Épée"));
+            assertThat(result, containsString("�p�e"));
         }
 
         @Test
         @DisplayName("Affichage avec plusieurs objets")
         void testAffichageWithMultipleItems() {
             player p = new player("Test", "Avatar", "ARCHER", 100, 
-                new ArrayList<>(Arrays.asList("Épée", "Bouclier", "Potion")));
+                new ArrayList<>(Arrays.asList("�p�e", "Bouclier", "Potion")));
             String result = re.forestier.edu.rpg.Affichage.afficherJoueur(p);
-            assertThat(result, containsString("Épée"));
+            assertThat(result, containsString("�p�e"));
             assertThat(result, containsString("Bouclier"));
             assertThat(result, containsString("Potion"));
         }
@@ -321,7 +385,7 @@ public class UnitTests {
         }
 
         @Test
-        @DisplayName("HP capé au maximum")
+        @DisplayName("HP cap� au maximum")
         void testHPCapped() {
             player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
             p.currenthealthpoints = 101;
@@ -331,13 +395,45 @@ public class UnitTests {
         }
 
         @Test
-        @DisplayName("HP égal au max reste inchangé")
-        void testHPAtMax() {
-            player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
-            p.currenthealthpoints = 100;
+        @DisplayName("HP exactement � 50%")
+        void testHPExactly50Percent() {
+            player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
+            p.currenthealthpoints = 50;
             p.healthpoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(100, p.currenthealthpoints);
+            assertEquals(50, p.currenthealthpoints);
+        }
+
+        @Test
+        @DisplayName("HP juste en dessous de 50%")
+        void testHPJustBelow50Percent() {
+            player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
+            p.currenthealthpoints = 49;
+            p.healthpoints = 100;
+            UpdatePlayer.majFinDeTour(p);
+            assertEquals(50, p.currenthealthpoints);
+        }
+
+        @Test
+        @DisplayName("ADVENTURER niveau exactement 3")
+        void testAdventurerExactlyLevel3() {
+            player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 27);
+            p.currenthealthpoints = 20;
+            p.healthpoints = 100;
+            UpdatePlayer.majFinDeTour(p);
+            assertEquals(22, p.currenthealthpoints);
+        }
+
+        @Test
+        @DisplayName("ADVENTURER niveau exactement 2")
+        void testAdventurerExactlyLevel2() {
+            player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
+            UpdatePlayer.addXp(p, 10);
+            p.currenthealthpoints = 20;
+            p.healthpoints = 100;
+            UpdatePlayer.majFinDeTour(p);
+            assertEquals(21, p.currenthealthpoints);
         }
     }
 }

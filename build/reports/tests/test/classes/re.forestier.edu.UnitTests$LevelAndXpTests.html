@@ -3,14 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Tests du système de niveaux et XP</title>
+<title>Test results - Tests du syst�me de niveaux et XP</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Tests du système de niveaux et XP</h1>
+<h1>Tests du syst�me de niveaux et XP</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
 <a href="../packages/re.forestier.edu.html">re.forestier.edu</a> &gt; UnitTests$LevelAndXpTests</div>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">12</div>
+<div class="counter">20</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.003s</div>
+<div class="counter">0.008s</div>
 <p>duration</p>
 </div>
 </td>
@@ -78,18 +78,66 @@
 <tr>
 <td class="success">addXp retourne false sans level-up</td>
 <td class="success">testAddXpReturnsFalseWithoutLevelUp()</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">addXp retourne true lors level-up</td>
 <td class="success">testAddXpReturnsTrueOnLevelUp()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Niveau 1 par d�faut</td>
+<td class="success">testDefaultLevel()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">XP exactement � la limite niveau 2</td>
+<td class="success">testExactly10XP()</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Niveau 1 par défaut</td>
-<td class="success">testDefaultLevel()</td>
+<td class="success">XP exactement � la limite niveau 5</td>
+<td class="success">testExactly111XP()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">XP exactement � la limite niveau 3</td>
+<td class="success">testExactly27XP()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">XP exactement � la limite niveau 4</td>
+<td class="success">testExactly57XP()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">XP juste avant limite niveau 2</td>
+<td class="success">testJustBeforeLevel2()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">XP juste avant limite niveau 3</td>
+<td class="success">testJustBeforeLevel3()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">XP juste avant limite niveau 4</td>
+<td class="success">testJustBeforeLevel4()</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">XP juste avant limite niveau 5</td>
+<td class="success">testJustBeforeLevel5()</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
@@ -102,13 +150,13 @@
 <tr>
 <td class="success">Passage niveau 3 avec 27 XP</td>
 <td class="success">testLevelUp3()</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Passage niveau 4 avec 57 XP</td>
 <td class="success">testLevelUp4()</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -120,30 +168,30 @@
 <tr>
 <td class="success">Level-up ajoute objet inventaire</td>
 <td class="success">testLevelUpAddsItem()</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Level-up ADVENTURER niveau 2 met à jour abilities</td>
+<td class="success">Level-up ADVENTURER niveau 2 met � jour abilities</td>
 <td class="success">testLevelUpAdventurerAbilities()</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Level-up ARCHER niveau 2 met à jour abilities</td>
+<td class="success">Level-up ARCHER niveau 2 met � jour abilities</td>
 <td class="success">testLevelUpArcherAbilities()</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Level-up DWARF niveau 2 met à jour abilities</td>
+<td class="success">Level-up DWARF niveau 2 met � jour abilities</td>
 <td class="success">testLevelUpDwarfAbilities()</td>
-<td class="success">0.001s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">Reste niveau 1 avec 9 XP</td>
-<td class="success">testStayLevel1()</td>
+<td class="success">XP bien au-del� niveau 5</td>
+<td class="success">testWellBeyondLevel5()</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
@@ -157,7 +205,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.5</a> at 8 déc. 2025, 11:28:30</p>
+<a href="http://www.gradle.org">Gradle 8.5</a> at 9 déc. 2025, 01:38:04</p>
 </div>
 </div>
 </body>
