@@ -5,20 +5,20 @@ import java.util.HashMap;
 
 public class player {
     public String playerName;
-    public String Avatar_name;
+    public String avatarName;
     private AvatarClass avatarClass;
 
     public Integer money;
 
     public int level;
-    public int healthpoints;
-    public int currenthealthpoints;
+    public int maxHealthPoints;
+    public int currentHealthPoints;
     protected int xp;
 
     public HashMap<String, Integer> abilities;
     public ArrayList<String> inventory;
     
-    public player(String playerName, String avatar_name, String avatarClassStr, int money, ArrayList<String> inventory) {
+    public player(String playerName, String avatarName, String avatarClassStr, int money, ArrayList<String> inventory) {
         try {
             this.avatarClass = AvatarClass.valueOf(avatarClassStr);
         } catch (IllegalArgumentException e) {
@@ -27,7 +27,7 @@ public class player {
         }
 
         this.playerName = playerName;
-        Avatar_name = avatar_name;
+        this.avatarName = avatarName;
         this.money = Integer.valueOf(money);
         this.inventory = inventory;
         this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(this.avatarClass).get(1);

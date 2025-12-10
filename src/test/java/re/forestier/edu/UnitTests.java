@@ -21,7 +21,7 @@ public class UnitTests {
         void testCreateAdventurer() {
             player p = new player("Florian", "Grognak", "ADVENTURER", 100, new ArrayList<>());
             assertThat(p.playerName, is("Florian"));
-            assertThat(p.Avatar_name, is("Grognak"));
+            assertThat(p.avatarName, is("Grognak"));
             assertThat(p.getAvatarClass(), is(AvatarClass.ADVENTURER));
             assertThat(p.money, is(100));
         }
@@ -308,60 +308,60 @@ public class UnitTests {
         @DisplayName("Joueur KO reste KO")
         void testPlayerKO() {
             player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
-            p.currenthealthpoints = 0;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 0;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(0, p.currenthealthpoints);
+            assertEquals(0, p.currentHealthPoints);
         }
 
         @Test
         @DisplayName("DWARF avec Holy Elixir sous 50%")
         void testDwarfWithHolyElixir() {
             player p = new player("Test", "Avatar", "DWARF", 100, new ArrayList<>(Arrays.asList("Holy Elixir")));
-            p.currenthealthpoints = 20;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 20;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(22, p.currenthealthpoints);
+            assertEquals(22, p.currentHealthPoints);
         }
 
         @Test
         @DisplayName("DWARF sans Holy Elixir sous 50%")
         void testDwarfWithoutHolyElixir() {
             player p = new player("Test", "Avatar", "DWARF", 100, new ArrayList<>());
-            p.currenthealthpoints = 20;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 20;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(21, p.currenthealthpoints);
+            assertEquals(21, p.currentHealthPoints);
         }
 
         @Test
         @DisplayName("ARCHER avec Magic Bow sous 50%")
         void testArcherWithMagicBow() {
             player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>(Arrays.asList("Magic Bow")));
-            p.currenthealthpoints = 20;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 20;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(22, p.currenthealthpoints);
+            assertEquals(22, p.currentHealthPoints);
         }
 
         @Test
         @DisplayName("ARCHER sans Magic Bow sous 50%")
         void testArcherWithoutMagicBow() {
             player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
-            p.currenthealthpoints = 20;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 20;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(21, p.currenthealthpoints);
+            assertEquals(21, p.currentHealthPoints);
         }
 
         @Test
         @DisplayName("ADVENTURER niveau 1 sous 50%")
         void testAdventurerLevel1() {
             player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
-            p.currenthealthpoints = 20;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 20;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(21, p.currenthealthpoints);
+            assertEquals(21, p.currentHealthPoints);
         }
 
         @Test
@@ -369,50 +369,50 @@ public class UnitTests {
         void testAdventurerLevel3Plus() {
             player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
             UpdatePlayer.addXp(p, 27);
-            p.currenthealthpoints = 20;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 20;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(22, p.currenthealthpoints);
+            assertEquals(22, p.currentHealthPoints);
         }
 
         @Test
         @DisplayName("Pas de regen au-dessus 50%")
         void testNoRegenAbove50() {
             player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
-            p.currenthealthpoints = 50;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 50;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(50, p.currenthealthpoints);
+            assertEquals(50, p.currentHealthPoints);
         }
 
         @Test
         @DisplayName("HP cap� au maximum")
         void testHPCapped() {
             player p = new player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
-            p.currenthealthpoints = 101;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 101;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(100, p.currenthealthpoints);
+            assertEquals(100, p.currentHealthPoints);
         }
 
         @Test
         @DisplayName("HP exactement � 50%")
         void testHPExactly50Percent() {
             player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
-            p.currenthealthpoints = 50;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 50;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(50, p.currenthealthpoints);
+            assertEquals(50, p.currentHealthPoints);
         }
 
         @Test
         @DisplayName("HP juste en dessous de 50%")
         void testHPJustBelow50Percent() {
             player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
-            p.currenthealthpoints = 49;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 49;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(50, p.currenthealthpoints);
+            assertEquals(50, p.currentHealthPoints);
         }
 
         @Test
@@ -420,10 +420,10 @@ public class UnitTests {
         void testAdventurerExactlyLevel3() {
             player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
             UpdatePlayer.addXp(p, 27);
-            p.currenthealthpoints = 20;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 20;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(22, p.currenthealthpoints);
+            assertEquals(22, p.currentHealthPoints);
         }
 
         @Test
@@ -431,10 +431,10 @@ public class UnitTests {
         void testAdventurerExactlyLevel2() {
             player p = new player("Test", "Avatar", "ADVENTURER", 100, new ArrayList<>());
             UpdatePlayer.addXp(p, 10);
-            p.currenthealthpoints = 20;
-            p.healthpoints = 100;
+            p.currentHealthPoints = 20;
+            p.maxHealthPoints = 100;
             UpdatePlayer.majFinDeTour(p);
-            assertEquals(21, p.currenthealthpoints);
+            assertEquals(21, p.currentHealthPoints);
         }
     }
 }

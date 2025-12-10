@@ -6,35 +6,35 @@ import java.util.HashMap;
 public class player {
     public String playerName;
     public String Avatar_name;
-    private String AvatarClass;
+    private AvatarClass avatarClass;
 
     public Integer money;
-    
-
 
     public int level;
     public int healthpoints;
     public int currenthealthpoints;
     protected int xp;
 
-
     public HashMap&lt;String, Integer&gt; abilities;
     public ArrayList&lt;String&gt; inventory;
-<span class="fc" id="L23">    public player(String playerName, String avatar_name, String avatarClass, int money, ArrayList&lt;String&gt; inventory) {</span>
-<span class="fc bfc" id="L24" title="All 6 branches covered.">        if (!avatarClass.equals(&quot;ARCHER&quot;) &amp;&amp; !avatarClass.equals(&quot;ADVENTURER&quot;) &amp;&amp; !avatarClass.equals(&quot;DWARF&quot;) ) {</span>
-<span class="fc" id="L25">            return;</span>
-        }
+    
+<span class="fc" id="L21">    public player(String playerName, String avatar_name, String avatarClassStr, int money, ArrayList&lt;String&gt; inventory) {</span>
+        try {
+<span class="fc" id="L23">            this.avatarClass = AvatarClass.valueOf(avatarClassStr);</span>
+<span class="fc" id="L24">        } catch (IllegalArgumentException e) {</span>
+<span class="fc" id="L25">            this.avatarClass = null;</span>
+<span class="fc" id="L26">            return;</span>
+<span class="fc" id="L27">        }</span>
 
-<span class="fc" id="L28">        this.playerName = playerName;</span>
-<span class="fc" id="L29">        Avatar_name = avatar_name;</span>
-<span class="fc" id="L30">        AvatarClass = avatarClass;</span>
+<span class="fc" id="L29">        this.playerName = playerName;</span>
+<span class="fc" id="L30">        Avatar_name = avatar_name;</span>
 <span class="fc" id="L31">        this.money = Integer.valueOf(money);</span>
 <span class="fc" id="L32">        this.inventory = inventory;</span>
-<span class="fc" id="L33">        this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(AvatarClass).get(1);</span>
+<span class="fc" id="L33">        this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(this.avatarClass).get(1);</span>
 <span class="fc" id="L34">    }</span>
 
-    public String getAvatarClass () {
-<span class="fc" id="L37">        return AvatarClass;</span>
+    public AvatarClass getAvatarClass() {
+<span class="fc" id="L37">        return avatarClass;</span>
     }
 
     public void removeMoney(int amount) throws IllegalArgumentException {
@@ -44,36 +44,34 @@ public class player {
 
 <span class="fc" id="L45">        money = Integer.parseInt(money.toString()) - amount;</span>
 <span class="fc" id="L46">    }</span>
+    
     public void addMoney(int amount) {
-<span class="fc" id="L48">        var value = Integer.valueOf(amount);</span>
-<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        money = money + (value != null ? value : 0);</span>
-<span class="fc" id="L50">    }</span>
+<span class="fc" id="L49">        var value = Integer.valueOf(amount);</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        money = money + (value != null ? value : 0);</span>
+<span class="fc" id="L51">    }</span>
+    
     public int retrieveLevel() {
-        // (lvl-1) * 10 + round((lvl * xplvl-1)/4)
-<span class="fc" id="L53">        HashMap&lt;Integer, Integer&gt; levels = new HashMap&lt;&gt;();</span>
-<span class="fc" id="L54">        levels.put(2,10); // 1*10 + ((2*0)/4)</span>
-<span class="fc" id="L55">        levels.put(3,27); // 2*10 + ((3*10)/4)</span>
-<span class="fc" id="L56">        levels.put(4,57); // 3*10 + ((4*27)/4)</span>
-<span class="fc" id="L57">        levels.put(5,111); // 4*10 + ((5*57)/4)</span>
-        //TODO : ajouter les prochains niveaux
+<span class="fc" id="L54">        HashMap&lt;Integer, Integer&gt; levels = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L55">        levels.put(2,10);</span>
+<span class="fc" id="L56">        levels.put(3,27);</span>
+<span class="fc" id="L57">        levels.put(4,57);</span>
+<span class="fc" id="L58">        levels.put(5,111);</span>
 
 <span class="fc bfc" id="L60" title="All 2 branches covered.">        if (xp &lt; levels.get(2)) {</span>
 <span class="fc" id="L61">            return 1;</span>
         }
-<span class="fc bfc" id="L63" title="All 2 branches covered.">        else if (xp &lt; levels.get(3)) {return 2;</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        else if (xp &lt; levels.get(3)) {</span>
+<span class="fc" id="L64">            return 2;</span>
         }
-<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (xp &lt; levels.get(4)) {</span>
-<span class="fc" id="L66">            return 3;</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (xp &lt; levels.get(4)) {</span>
+<span class="fc" id="L67">            return 3;</span>
         }
-<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (xp &lt; levels.get(5)) return 4;</span>
-<span class="fc" id="L69">        return 5;</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if (xp &lt; levels.get(5)) return 4;</span>
+<span class="fc" id="L70">        return 5;</span>
     }
 
     public int getXp() {
-<span class="fc" id="L73">        return this.xp;</span>
+<span class="fc" id="L74">        return this.xp;</span>
     }
-
-    
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

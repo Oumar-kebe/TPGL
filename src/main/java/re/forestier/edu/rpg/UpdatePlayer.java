@@ -117,43 +117,43 @@ public class UpdatePlayer {
     }
 
     public static void majFinDeTour(player player) {
-        if(player.currenthealthpoints == 0) {
+        if(player.currentHealthPoints == 0) {
             System.out.println("Le joueur est KO !");
             return;
         }
 
-        if(player.currenthealthpoints < player.healthpoints/2) {
+        if(player.currentHealthPoints < player.maxHealthPoints/2) {
             if(player.getAvatarClass() != AvatarClass.ADVENTURER) {
                 if(player.getAvatarClass() == AvatarClass.DWARF) {
                     if(player.inventory.contains("Holy Elixir")) {
-                        player.currenthealthpoints+=1;
+                        player.currentHealthPoints+=1;
                     }
-                    player.currenthealthpoints+=1;
+                    player.currentHealthPoints+=1;
                 } else if(player.getAvatarClass() == AvatarClass.ADVENTURER) {
-                    player.currenthealthpoints+=2;
+                    player.currentHealthPoints+=2;
                 }
 
                 if(player.getAvatarClass() == AvatarClass.ARCHER) {
-                    player.currenthealthpoints+=1;
+                    player.currentHealthPoints+=1;
                     if(player.inventory.contains("Magic Bow")) {
-                        player.currenthealthpoints+=player.currenthealthpoints/8-1;
+                        player.currentHealthPoints+=player.currentHealthPoints/8-1;
                     }
                 }
             } else {
-                player.currenthealthpoints+=2;
+                player.currentHealthPoints+=2;
                 if(player.retrieveLevel() < 3) {
-                    player.currenthealthpoints-=1;
+                    player.currentHealthPoints-=1;
                 }
             }
-        } else if(player.currenthealthpoints >= player.healthpoints/2){
-            if(player.currenthealthpoints >= player.healthpoints) {
-                player.currenthealthpoints = player.healthpoints;
+        } else if(player.currentHealthPoints >= player.maxHealthPoints/2){
+            if(player.currentHealthPoints >= player.maxHealthPoints) {
+                player.currentHealthPoints = player.maxHealthPoints;
                 return;
             }
         }
 
-        if(player.currenthealthpoints >= player.healthpoints) {
-            player.currenthealthpoints = player.healthpoints;
+        if(player.currentHealthPoints >= player.maxHealthPoints) {
+            player.currentHealthPoints = player.maxHealthPoints;
         }
     }
 }
