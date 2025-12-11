@@ -5,7 +5,7 @@ public class Affichage {
     public static String afficherJoueur(player player) {
         StringBuilder sb = new StringBuilder();
         
-        sb.append("Joueur ").append(player.avatarName)
+        sb.append("Joueur ".append(player.avatarName)
           .append(" joué par ").append(player.playerName);
         
         sb.append("\nNiveau : ").append(player.retrieveLevel())
