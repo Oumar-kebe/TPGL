@@ -41,15 +41,13 @@ public class player {
         if (money - amount < 0) {
             throw new IllegalArgumentException("Player can't have a negative money!");
         }
+        money -= amount;
+    }
 
-        money = Integer.parseInt(money.toString()) - amount;
-    }
-    
     public void addMoney(int amount) {
-        var value = Integer.valueOf(amount);
-        money = money + (value != null ? value : 0);
+        money += amount;
     }
-    
+        
     public int retrieveLevel() {
     if (xp < 10) return 1;
     if (xp < 27) return 2;
