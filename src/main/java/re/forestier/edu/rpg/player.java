@@ -51,24 +51,12 @@ public class player {
     }
     
     public int retrieveLevel() {
-        HashMap<Integer, Integer> levels = new HashMap<>();
-        levels.put(2,10);
-        levels.put(3,27);
-        levels.put(4,57);
-        levels.put(5,111);
-
-        if (xp < levels.get(2)) {
-            return 1;
-        }
-        else if (xp < levels.get(3)) {
-            return 2;
-        }
-        if (xp < levels.get(4)) {
-            return 3;
-        }
-        if (xp < levels.get(5)) return 4;
-        return 5;
-    }
+    if (xp < 10) return 1;
+    if (xp < 27) return 2;
+    if (xp < 57) return 3;
+    if (xp < 111) return 4;
+    return 5;
+}
 
     public int getXp() {
         return this.xp;
