@@ -8,96 +8,104 @@ public class UpdatePlayer {
     private final static String[] objectList = {"Lookout Ring : Prevents surprise attacks","Scroll of Stupidity : INT-2 when applied to an enemy", "Draupnir : Increases XP gained by 100%", "Magic Charm : Magic +10 for 5 rounds", "Rune Staff of Curse : May burn your ennemies... Or yourself. Who knows?", "Combat Edge : Well, that's an edge", "Holy Elixir : Recover your HP"
     };
 
+    private static HashMap<Integer, HashMap<String, Integer>> getAdventurerAbilities() {
+    HashMap<Integer, HashMap<String, Integer>> adventurerMap = new HashMap<>();
+    
+    HashMap<String, Integer> level1 = new HashMap<>();
+    level1.put("INT", 1);
+    level1.put("DEF", 1);
+    level1.put("ATK", 3);
+    level1.put("CHA", 2);
+    adventurerMap.put(1, level1);
+
+    HashMap<String, Integer> level2 = new HashMap<>();
+    level2.put("INT", 2);
+    level2.put("CHA", 3);
+    adventurerMap.put(2, level2);
+
+    HashMap<String, Integer> level3 = new HashMap<>();
+    level3.put("ATK", 5);
+    level3.put("ALC", 1);
+    adventurerMap.put(3, level3);
+
+    HashMap<String, Integer> level4 = new HashMap<>();
+    level4.put("DEF", 3);
+    adventurerMap.put(4, level4);
+
+    HashMap<String, Integer> level5 = new HashMap<>();
+    level5.put("VIS", 1);
+    level5.put("DEF", 4);
+    adventurerMap.put(5, level5);
+
+    return adventurerMap;
+}
+
+private static HashMap<Integer, HashMap<String, Integer>> getArcherAbilities() {
+    HashMap<Integer, HashMap<String, Integer>> archerMap = new HashMap<>();
+    
+    HashMap<String, Integer> level1 = new HashMap<>();
+    level1.put("INT", 1);
+    level1.put("ATK", 3);
+    level1.put("CHA", 1);
+    level1.put("VIS", 3);
+    archerMap.put(1, level1);
+
+    HashMap<String, Integer> level2 = new HashMap<>();
+    level2.put("DEF", 1);
+    level2.put("CHA", 2);
+    archerMap.put(2, level2);
+
+    HashMap<String, Integer> level3 = new HashMap<>();
+    level3.put("ATK", 3);
+    archerMap.put(3, level3);
+
+    HashMap<String, Integer> level4 = new HashMap<>();
+    level4.put("DEF", 2);
+    archerMap.put(4, level4);
+
+    HashMap<String, Integer> level5 = new HashMap<>();
+    level5.put("ATK", 4);
+    archerMap.put(5, level5);
+
+    return archerMap;
+}
+
+private static HashMap<Integer, HashMap<String, Integer>> getDwarfAbilities() {
+    HashMap<Integer, HashMap<String, Integer>> dwarfMap = new HashMap<>();
+    
+    HashMap<String, Integer> level1 = new HashMap<>();
+    level1.put("ALC", 4);
+    level1.put("INT", 1);
+    level1.put("ATK", 3);
+    dwarfMap.put(1, level1);
+
+    HashMap<String, Integer> level2 = new HashMap<>();
+    level2.put("DEF", 1);
+    level2.put("ALC", 5);
+    dwarfMap.put(2, level2);
+
+    HashMap<String, Integer> level3 = new HashMap<>();
+    level3.put("ATK", 4);
+    dwarfMap.put(3, level3);
+
+    HashMap<String, Integer> level4 = new HashMap<>();
+    level4.put("DEF", 2);
+    dwarfMap.put(4, level4);
+
+    HashMap<String, Integer> level5 = new HashMap<>();
+    level5.put("CHA", 1);
+    dwarfMap.put(5, level5);
+
+    return dwarfMap;
+}
+
     public static HashMap<AvatarClass, HashMap<Integer, HashMap<String, Integer>>> abilitiesPerTypeAndLevel() {
-        HashMap<AvatarClass, HashMap<Integer, HashMap<String, Integer>>> abilitiesPerTypeAndLevel = new HashMap<>();
-
-        HashMap<Integer, HashMap<String, Integer>> adventurerMap = new HashMap<>();
-        HashMap<String, Integer> adventurerLevel1 = new HashMap<>();
-        adventurerLevel1.put("INT", 1);
-        adventurerLevel1.put("DEF", 1);
-        adventurerLevel1.put("ATK", 3);
-        adventurerLevel1.put("CHA", 2);
-        adventurerMap.put(1, adventurerLevel1);
-
-        HashMap<String, Integer> adventurerLevel2 = new HashMap<>();
-        adventurerLevel2.put("INT", 2);
-        adventurerLevel2.put("CHA", 3);
-        adventurerMap.put(2, adventurerLevel2);
-
-        HashMap<String, Integer> adventurerLevel3 = new HashMap<>();
-        adventurerLevel3.put("ATK", 5);
-        adventurerLevel3.put("ALC", 1);
-        adventurerMap.put(3, adventurerLevel3);
-
-        HashMap<String, Integer> adventurerLevel4 = new HashMap<>();
-        adventurerLevel4.put("DEF", 3);
-        adventurerMap.put(4, adventurerLevel4);
-
-        HashMap<String, Integer> adventurerLevel5 = new HashMap<>();
-        adventurerLevel5.put("VIS", 1);
-        adventurerLevel5.put("DEF", 4);
-        adventurerMap.put(5, adventurerLevel5);
-
-        abilitiesPerTypeAndLevel.put(AvatarClass.ADVENTURER, adventurerMap);
-
-
-        HashMap<Integer, HashMap<String, Integer>> archerMap = new HashMap<>();
-        HashMap<String, Integer> archerLevel1 = new HashMap<>();
-        archerLevel1.put("INT", 1);
-        archerLevel1.put("ATK", 3);
-        archerLevel1.put("CHA", 1);
-        archerLevel1.put("VIS", 3);
-        archerMap.put(1, archerLevel1);
-
-        HashMap<String, Integer> archerLevel2 = new HashMap<>();
-        archerLevel2.put("DEF", 1);
-        archerLevel2.put("CHA", 2);
-        archerMap.put(2, archerLevel2);
-
-        HashMap<String, Integer> archerLevel3 = new HashMap<>();
-        archerLevel3.put("ATK", 3);
-        archerMap.put(3, archerLevel3);
-
-        HashMap<String, Integer> archerLevel4 = new HashMap<>();
-        archerLevel4.put("DEF", 2);
-        archerMap.put(4, archerLevel4);
-
-        HashMap<String, Integer> archerLevel5 = new HashMap<>();
-        archerLevel5.put("ATK", 4);
-        archerMap.put(5, archerLevel5);
-
-        abilitiesPerTypeAndLevel.put(AvatarClass.ARCHER, archerMap);
-
-
-        HashMap<Integer, HashMap<String, Integer>> dwarf = new HashMap<>();
-        HashMap<String, Integer> dwarfLevel1 = new HashMap<>();
-        dwarfLevel1.put("ALC", 4);
-        dwarfLevel1.put("INT", 1);
-        dwarfLevel1.put("ATK", 3);
-        dwarf.put(1, dwarfLevel1);
-
-        HashMap<String, Integer> dwarfLevel2 = new HashMap<>();
-        dwarfLevel2.put("DEF", 1);
-        dwarfLevel2.put("ALC", 5);
-        dwarf.put(2, dwarfLevel2);
-
-        HashMap<String, Integer> dwarfLevel3 = new HashMap<>();
-        dwarfLevel3.put("ATK", 4);
-        dwarf.put(3, dwarfLevel3);
-
-        HashMap<String, Integer> dwarfLevel4 = new HashMap<>();
-        dwarfLevel4.put("DEF", 2);
-        dwarf.put(4, dwarfLevel4);
-
-        HashMap<String, Integer> dwarfLevel5 = new HashMap<>();
-        dwarfLevel5.put("CHA", 1);
-        dwarf.put(5, dwarfLevel5);
-
-        abilitiesPerTypeAndLevel.put(AvatarClass.DWARF, dwarf);
-
-        return abilitiesPerTypeAndLevel;
+        HashMap<AvatarClass, HashMap<Integer, HashMap<String, Integer>>> abilities = new HashMap<>();
+        abilities.put(AvatarClass.ADVENTURER, getAdventurerAbilities());
+        abilities.put(AvatarClass.ARCHER, getArcherAbilities());
+        abilities.put(AvatarClass.DWARF, getDwarfAbilities());
+        return abilities;
     }
-
     public static boolean addXp(player player, int xp) {
         int currentLevel = player.retrieveLevel();
         player.xp += xp;
@@ -117,43 +125,45 @@ public class UpdatePlayer {
     }
 
     public static void majFinDeTour(player player) {
-        if(player.currentHealthPoints == 0) {
-            System.out.println("Le joueur est KO !");
-            return;
-        }
-
-        if(player.currentHealthPoints < player.maxHealthPoints/2) {
-            if(player.getAvatarClass() != AvatarClass.ADVENTURER) {
-                if(player.getAvatarClass() == AvatarClass.DWARF) {
-                    if(player.inventory.contains("Holy Elixir")) {
-                        player.currentHealthPoints+=1;
-                    }
-                    player.currentHealthPoints+=1;
-                } else if(player.getAvatarClass() == AvatarClass.ADVENTURER) {
-                    player.currentHealthPoints+=2;
-                }
-
-                if(player.getAvatarClass() == AvatarClass.ARCHER) {
-                    player.currentHealthPoints+=1;
-                    if(player.inventory.contains("Magic Bow")) {
-                        player.currentHealthPoints+=player.currentHealthPoints/8-1;
-                    }
-                }
-            } else {
-                player.currentHealthPoints+=2;
-                if(player.retrieveLevel() < 3) {
-                    player.currentHealthPoints-=1;
-                }
-            }
-        } else if(player.currentHealthPoints >= player.maxHealthPoints/2){
-            if(player.currentHealthPoints >= player.maxHealthPoints) {
-                player.currentHealthPoints = player.maxHealthPoints;
-                return;
-            }
-        }
-
-        if(player.currentHealthPoints >= player.maxHealthPoints) {
-            player.currentHealthPoints = player.maxHealthPoints;
-        }
+    if (player.currentHealthPoints == 0) {
+        System.out.println("Le joueur est KO !");
+        return;
     }
+
+    if (player.currentHealthPoints < player.maxHealthPoints / 2) {
+        player.currentHealthPoints += calculateRegeneration(player);
+    }
+
+    if (player.currentHealthPoints > player.maxHealthPoints) {
+        player.currentHealthPoints = player.maxHealthPoints;
+    }
+}
+
+private static int calculateRegeneration(player player) {
+    if (player.getAvatarClass() == AvatarClass.DWARF) {
+        int regen = 1;
+        if (player.inventory.contains("Holy Elixir")) {
+            regen += 1;
+        }
+        return regen;
+    }
+    
+    if (player.getAvatarClass() == AvatarClass.ARCHER) {
+        int regen = 1;
+        if (player.inventory.contains("Magic Bow")) {
+            regen += player.currentHealthPoints / 8 - 1;
+        }
+        return regen;
+    }
+    
+    if (player.getAvatarClass() == AvatarClass.ADVENTURER) {
+        int regen = 2;
+        if (player.retrieveLevel() < 3) {
+            regen -= 1;
+        }
+        return regen;
+    }
+    
+    return 0;
+}
 }
