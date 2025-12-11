@@ -3,17 +3,24 @@ package re.forestier.edu.rpg;
 public class Affichage {
 
     public static String afficherJoueur(player player) {
-        final String[] finalString = {"Joueur " + player.avatarName + " joué par " + player.playerName};
-        finalString[0] += "\nNiveau : " + player.retrieveLevel() + " (XP totale : " + player.xp + ")";
-        finalString[0] += "\n\nCapacités :";
-        player.abilities.forEach((name, level) -> {
-            finalString[0] += "\n   " + name + " : " + level;
-        });
-        finalString[0] += "\n\nInventaire :";
-        player.inventory.forEach(item -> {
-            finalString[0] += "\n   " + item;
-        });
-
-        return finalString[0];
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("Joueur ").append(player.avatarName)
+          .append(" joué par ").append(player.playerName);
+        
+        sb.append("\nNiveau : ").append(player.retrieveLevel())
+          .append(" (XP totale : ").append(player.xp).append(")");
+        
+        sb.append("\n\nCapacités :");
+        player.abilities.forEach((name, level) -> 
+            sb.append("\n   ").append(name).append(" : ").append(level)
+        );
+        
+        sb.append("\n\nInventaire :");
+        player.inventory.forEach(item -> 
+            sb.append("\n   ").append(item)
+        );
+        
+        return sb.toString();
     }
 }
