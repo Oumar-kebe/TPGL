@@ -113,7 +113,7 @@ private static HashMap<Integer, HashMap<String, Integer>> getDwarfAbilities() {
 
         if (newLevel != currentLevel) {
             Random random = new Random();
-            player.inventory.add(objectList[random.nextInt(objectList.length - 0) + 0]);
+            player.inventory.add(objectList[random.nextInt(objectList.length)]);
 
             HashMap<String, Integer> abilities = abilitiesPerTypeAndLevel().get(player.getAvatarClass()).get(newLevel);
             abilities.forEach((ability, level) -> {
