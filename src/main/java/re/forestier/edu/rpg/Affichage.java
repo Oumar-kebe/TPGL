@@ -2,7 +2,7 @@ package re.forestier.edu.rpg;
 
 public class Affichage {
 
-    public static String afficherJoueur(player player) {
+    public static String afficherJoueur(Player player) {
         StringBuilder sb = new StringBuilder();
         
         sb.append("Joueur ").append(player.avatarName)

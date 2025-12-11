@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests de gestion de l'argent" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-12-10T02:07:16" hostname="ada.local.isima.fr" time="0.005">
+<testsuite name="Tests de gestion de l'argent" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-12-11T17:11:28" hostname="ada.local.isima.fr" time="0.004">
   <properties/>
-  <testcase name="Retrait d'argent" classname="re.forestier.edu.UnitTests$MoneyManagementTests" time="0.002"/>
+  <testcase name="Retrait d'argent" classname="re.forestier.edu.UnitTests$MoneyManagementTests" time="0.001"/>
   <testcase name="Ajout d'argent" classname="re.forestier.edu.UnitTests$MoneyManagementTests" time="0.001"/>
   <testcase name="Impossible argent n�gatif" classname="re.forestier.edu.UnitTests$MoneyManagementTests" time="0.002"/>
   <system-out><![CDATA[]]></system-out>

@@ -106,7 +106,7 @@ private static HashMap<Integer, HashMap<String, Integer>> getDwarfAbilities() {
         abilities.put(AvatarClass.DWARF, getDwarfAbilities());
         return abilities;
     }
-    public static boolean addXp(player player, int xp) {
+    public static boolean addXp(Player player, int xp) {
         int currentLevel = player.retrieveLevel();
         player.xp += xp;
         int newLevel = player.retrieveLevel();
@@ -124,7 +124,7 @@ private static HashMap<Integer, HashMap<String, Integer>> getDwarfAbilities() {
         return false;
     }
 
-    public static void majFinDeTour(player player) {
+    public static void majFinDeTour(Player player) {
     if (player.currentHealthPoints == 0) {
         System.out.println("Le joueur est KO !");
         return;
@@ -139,7 +139,7 @@ private static HashMap<Integer, HashMap<String, Integer>> getDwarfAbilities() {
     }
 }
 
-private static int calculateRegeneration(player player) {
+private static int calculateRegeneration(Player player) {
     if (player.getAvatarClass() == AvatarClass.DWARF) {
         int regen = 1;
         if (player.inventory.contains("Holy Elixir")) {
