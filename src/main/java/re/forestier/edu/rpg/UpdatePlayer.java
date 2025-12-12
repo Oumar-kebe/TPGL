@@ -98,14 +98,43 @@ private static HashMap<Integer, HashMap<String, Integer>> getDwarfAbilities() {
 
     return dwarfMap;
 }
+private static HashMap<Integer, HashMap<String, Integer>> getGoblinAbilities() {
+    HashMap<Integer, HashMap<String, Integer>> goblinMap = new HashMap<>();
+    
+    HashMap<String, Integer> level1 = new HashMap<>();
+    level1.put("INT", 2);
+    level1.put("ATK", 2);
+    level1.put("ALC", 1);
+    goblinMap.put(1, level1);
 
+    HashMap<String, Integer> level2 = new HashMap<>();
+    level2.put("ATK", 3);
+    level2.put("ALC", 4);
+    goblinMap.put(2, level2);
+
+    HashMap<String, Integer> level3 = new HashMap<>();
+    level3.put("VIS", 1);
+    goblinMap.put(3, level3);
+
+    HashMap<String, Integer> level4 = new HashMap<>();
+    level4.put("DEF", 1);
+    goblinMap.put(4, level4);
+
+    HashMap<String, Integer> level5 = new HashMap<>();
+    level5.put("DEF", 2);
+    level5.put("ATK", 4);
+    goblinMap.put(5, level5);
+
+    return goblinMap;
+}
     public static HashMap<AvatarClass, HashMap<Integer, HashMap<String, Integer>>> abilitiesPerTypeAndLevel() {
-        HashMap<AvatarClass, HashMap<Integer, HashMap<String, Integer>>> abilities = new HashMap<>();
-        abilities.put(AvatarClass.ADVENTURER, getAdventurerAbilities());
-        abilities.put(AvatarClass.ARCHER, getArcherAbilities());
-        abilities.put(AvatarClass.DWARF, getDwarfAbilities());
-        return abilities;
-    }
+    HashMap<AvatarClass, HashMap<Integer, HashMap<String, Integer>>> abilities = new HashMap<>();
+    abilities.put(AvatarClass.ADVENTURER, getAdventurerAbilities());
+    abilities.put(AvatarClass.ARCHER, getArcherAbilities());
+    abilities.put(AvatarClass.DWARF, getDwarfAbilities());
+    abilities.put(AvatarClass.GOBLIN, getGoblinAbilities());
+    return abilities;
+}
     public static boolean addXp(Player player, int xp) {
         int currentLevel = player.retrieveLevel();
         player.xp += xp;
@@ -162,6 +191,10 @@ private static int calculateRegeneration(Player player) {
             regen -= 1;
         }
         return regen;
+    }
+
+     if (player.getAvatarClass() == AvatarClass.GOBLIN) {
+        return 1;  
     }
     
     return 0;
