@@ -21,6 +21,14 @@ public class Affichage {
             sb.append("\n   ").append(item)
         );
         
+        if (!player.items.isEmpty()) {
+            sb.append("\n\nObjets détaillés (").append(player.currentWeight)
+              .append("/").append(player.maxWeight).append(" kg) :");
+            player.items.forEach(item -> 
+                sb.append("\n   ").append(item)
+            );
+        }
+        
         return sb.toString();
     }
 }

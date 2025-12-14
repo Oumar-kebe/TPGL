@@ -17,21 +17,27 @@ public class Player {
 
     public HashMap<String, Integer> abilities;
     public ArrayList<String> inventory;
+    public ArrayList<Item> items;        
+    public int maxWeight;                
+    public int currentWeight;
     
     public Player(String playerName, String avatarName, String avatarClassStr, int money, ArrayList<String> inventory) {
-        try {
-            this.avatarClass = AvatarClass.valueOf(avatarClassStr);
-        } catch (IllegalArgumentException e) {
-            this.avatarClass = null;
-            return;
-        }
-
-        this.playerName = playerName;
-        this.avatarName = avatarName;
-        this.money = Integer.valueOf(money);
-        this.inventory = inventory;
-        this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(this.avatarClass).get(1);
+    try {
+        this.avatarClass = AvatarClass.valueOf(avatarClassStr);
+    } catch (IllegalArgumentException e) {
+        this.avatarClass = null;
+        return;
     }
+
+    this.playerName = playerName;
+    this.avatarName = avatarName;
+    this.money = Integer.valueOf(money);
+    this.inventory = inventory;
+    this.items = new ArrayList<>();
+    this.maxWeight = 50;  
+    this.currentWeight = 0;
+    this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(this.avatarClass).get(1);
+}
 
     public AvatarClass getAvatarClass() {
         return avatarClass;
@@ -59,4 +65,31 @@ public class Player {
     public int getXp() {
         return this.xp;
     }
+
+    public boolean addItem(Item item) {
+    if (currentWeight + item.getWeight() > maxWeight) {
+        return false; 
+    }
+    items.add(item);
+    currentWeight += item.getWeight();
+    return true;
+}
+
+public boolean sellItem(Item item) {
+    if (items.remove(item)) {
+        money += item.getValue();
+        currentWeight -= item.getWeight();
+        return true;
+    }
+    return false;
+}
+
+public Item getItemByName(String name) {
+    for (Item item : items) {
+        if (item.getName().equals(name)) {
+            return item;
+        }
+    }
+    return null;
+}
 }
