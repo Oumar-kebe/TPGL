@@ -7,6 +7,7 @@ import re.forestier.edu.rpg.AvatarClass;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
+import re.forestier.edu.rpg.Affichage;
 
 import java.util.*;
 
@@ -257,7 +258,7 @@ public class UnitTests {
         @DisplayName("Affichage joueur niveau 1")
         void testAffichageLevel1() {
             Player p = new Player("Florian", "Grognak", "ADVENTURER", 100, new ArrayList<>());
-            String result = re.forestier.edu.rpg.Affichage.afficherJoueur(p);
+            String result = Affichage.afficherJoueur(p);
             assertThat(result, containsString("Joueur Grognak"));
             assertThat(result, containsString("Florian"));
             assertThat(result, containsString("Niveau : 1"));
@@ -267,7 +268,7 @@ public class UnitTests {
         @DisplayName("Affichage avec capacit�s")
         void testAffichageWithAbilities() {
             Player p = new Player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
-            String result = re.forestier.edu.rpg.Affichage.afficherJoueur(p);
+            String result = Affichage.afficherJoueur(p);
             assertThat(result, containsString("Capacit"));
         }
 
@@ -275,7 +276,7 @@ public class UnitTests {
         @DisplayName("Affichage avec un objet inventaire")
         void testAffichageWithOneItem() {
             Player p = new Player("Test", "Avatar", "DWARF", 100, new ArrayList<>(Arrays.asList("�p�e")));
-            String result = re.forestier.edu.rpg.Affichage.afficherJoueur(p);
+            String result = Affichage.afficherJoueur(p);
             assertThat(result, containsString("Inventaire"));
             assertThat(result, containsString("�p�e"));
         }
@@ -285,7 +286,7 @@ public class UnitTests {
         void testAffichageWithMultipleItems() {
             Player p = new Player("Test", "Avatar", "ARCHER", 100, 
                 new ArrayList<>(Arrays.asList("�p�e", "Bouclier", "Potion")));
-            String result = re.forestier.edu.rpg.Affichage.afficherJoueur(p);
+            String result = Affichage.afficherJoueur(p);
             assertThat(result, containsString("�p�e"));
             assertThat(result, containsString("Bouclier"));
             assertThat(result, containsString("Potion"));
@@ -295,7 +296,7 @@ public class UnitTests {
         @DisplayName("Affichage inventaire vide")
         void testAffichageEmptyInventory() {
             Player p = new Player("Test", "Avatar", "ARCHER", 100, new ArrayList<>());
-            String result = re.forestier.edu.rpg.Affichage.afficherJoueur(p);
+            String result = Affichage.afficherJoueur(p);
             assertThat(result, containsString("Inventaire"));
         }
     }
@@ -438,27 +439,27 @@ public class UnitTests {
         }
     }
 
-    @Nested
-@DisplayName("Tests Affichage Markdown")
-class AffichageMarkdownTests {
-    
-    @Test
-    @DisplayName("Affichage Markdown basique")
-    void testAffichageMarkdown() {
-        Player p = new Player("Florian", "Grognak", "ADVENTURER", 100, new ArrayList<>());
-        String result = Affichage.afficherJoueurMarkdown(p);
-        assertThat(result, containsString("# Grognak"));
-        assertThat(result, containsString("**Joueur :** Florian"));
-        assertThat(result, containsString("## Capacités"));
+@Nested
+    @DisplayName("Tests Affichage Markdown")
+    class AffichageMarkdownTests {
+        
+        @Test
+        @DisplayName("Affichage Markdown basique")
+        void testAffichageMarkdown() {
+            Player p = new Player("Florian", "Grognak", "ADVENTURER", 100, new ArrayList<>());
+            String result = Affichage.afficherJoueurMarkdown(p);
+            assertThat(result, containsString("# Grognak"));
+            assertThat(result, containsString("**Joueur :** Florian"));
+            assertThat(result, containsString("## Capacités"));
+        }
+        
+        @Test
+        @DisplayName("Markdown avec inventaire")
+        void testMarkdownWithInventory() {
+            Player p = new Player("Test", "Avatar", "ARCHER", 100, new ArrayList<>(Arrays.asList("Épée")));
+            String result = Affichage.afficherJoueurMarkdown(p);
+            assertThat(result, containsString("## Inventaire"));
+            assertThat(result, containsString("* Épée"));
+        }
     }
-    
-    @Test
-    @DisplayName("Markdown avec inventaire")
-    void testMarkdownWithInventory() {
-        Player p = new Player("Test", "Avatar", "ARCHER", 100, new ArrayList<>(Arrays.asList("Épée")));
-        String result = Affichage.afficherJoueurMarkdown(p);
-        assertThat(result, containsString("## Inventaire"));
-        assertThat(result, containsString("* Épée"));
-    }
-}
 }

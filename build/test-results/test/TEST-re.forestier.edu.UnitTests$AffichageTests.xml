@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests Affichage" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-12-14T01:07:42" hostname="ada.local.isima.fr" time="0.009">
+<testsuite name="Tests Affichage" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-12-14T23:53:19" hostname="ada.local.isima.fr" time="0.004">
   <properties/>
-  <testcase name="Affichage inventaire vide" classname="re.forestier.edu.UnitTests$AffichageTests" time="0.005"/>
-  <testcase name="Affichage avec capacit�s" classname="re.forestier.edu.UnitTests$AffichageTests" time="0.001"/>
+  <testcase name="Affichage inventaire vide" classname="re.forestier.edu.UnitTests$AffichageTests" time="0.0"/>
+  <testcase name="Affichage avec capacit�s" classname="re.forestier.edu.UnitTests$AffichageTests" time="0.0"/>
   <testcase name="Affichage avec un objet inventaire" classname="re.forestier.edu.UnitTests$AffichageTests" time="0.001"/>
   <testcase name="Affichage avec plusieurs objets" classname="re.forestier.edu.UnitTests$AffichageTests" time="0.001"/>
   <testcase name="Affichage joueur niveau 1" classname="re.forestier.edu.UnitTests$AffichageTests" time="0.001"/>
