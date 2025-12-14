@@ -437,4 +437,28 @@ public class UnitTests {
             assertEquals(21, p.currentHealthPoints);
         }
     }
+
+    @Nested
+@DisplayName("Tests Affichage Markdown")
+class AffichageMarkdownTests {
+    
+    @Test
+    @DisplayName("Affichage Markdown basique")
+    void testAffichageMarkdown() {
+        Player p = new Player("Florian", "Grognak", "ADVENTURER", 100, new ArrayList<>());
+        String result = Affichage.afficherJoueurMarkdown(p);
+        assertThat(result, containsString("# Grognak"));
+        assertThat(result, containsString("**Joueur :** Florian"));
+        assertThat(result, containsString("## Capacités"));
+    }
+    
+    @Test
+    @DisplayName("Markdown avec inventaire")
+    void testMarkdownWithInventory() {
+        Player p = new Player("Test", "Avatar", "ARCHER", 100, new ArrayList<>(Arrays.asList("Épée")));
+        String result = Affichage.afficherJoueurMarkdown(p);
+        assertThat(result, containsString("## Inventaire"));
+        assertThat(result, containsString("* Épée"));
+    }
+}
 }
